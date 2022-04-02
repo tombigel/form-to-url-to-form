@@ -9,34 +9,41 @@
 
 </head>
 <body>
-<strong>A Pen created on CodePen.io. Original URL: <a href="https://codepen.io/tombigel/pen/rNpYJKX">https://codepen.io/tombigel/pen/rNpYJKX</a></strong>
 <!-- partial:index.partial.html -->
 <form name="form" id="form" action=""></form>
+<main>
+  <input form="form" type="text" name="text" value="Amazing!">
+  <input form="form" type="color" name="color" id="">
+  <input form="form" type="date" name="date" id="">
+  <input form="form" type="hidden" name="">
+  <fieldset>
+    <label><span>One</span><input form="form" type="radio" checked name="radio" value="1"></label>
+    <label><span>Two</span><input form="form" type="radio" name="radio" value="2"></label>
+    <label><span>Three</span><input form="form" type="radio" name="radio" value="3"></label>
+  </fieldset>
+  <fieldset>
+    <label><span>One</span><input form="form" type="checkbox" checked name="checkbox" value="1"></label>
+    <label><span>Two</span><input form="form" type="checkbox" name="checkbox" value="2"></label>
+    <label><span>Three</span><input form="form" type="checkbox" name="checkbox" value="3"></label>
+  </fieldset>
+  <select form="form" name="select">
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <input form="form" type="range" name="range" min="0" max="100">
+  
+  <input form="form" type="submit" name="button" value="Submit">
+  
+  <a id="url-to-clipboard" href="">Copy URL to clipboard <span aria-live="polite"></span></a>  
+</main>
 
-<input form="form" type="text" name="text" value="Amazing!">
-<input form="form" type="color" name="color" id="">
-<input form="form" type="date" name="date" id="">
-<input form="form" type="hidden" name="">
-<fieldset>
-  <label><span>One</span><input form="form" type="radio" checked name="radio" value="1"></label>
-  <label><span>Two</span><input form="form" type="radio" name="radio" value="2"></label>
-  <label><span>Three</span><input form="form" type="radio" name="radio" value="3"></label>
-</fieldset>
-<fieldset>
-  <label><span>One</span><input form="form" type="checkbox" checked name="checkbox" value="1"></label>
-  <label><span>Two</span><input form="form" type="checkbox" name="checkbox" value="2"></label>
-  <label><span>Three</span><input form="form" type="checkbox" name="checkbox" value="3"></label>
-</fieldset>
-<select form="form" name="select">
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</select>
-<input form="form" type="range" name="range" min="0" max="100">
+<aside>
+  <br>
+  A Pen created on CodePen.io. Original URL: 
+  <a href="https://codepen.io/tombigel/pen/rNpYJKX">https://codepen.io/tombigel/pen/rNpYJKX</a>
+</aside>
 
-<input form="form" type="submit" name="button" value="Submit">
-
-<a id="url-to-clipboard" href="">Copy URL to clipboard <span aria-live="polite"></span></a>
 <!-- partial -->
   <script type="module" src="./script.js"></script>
 
