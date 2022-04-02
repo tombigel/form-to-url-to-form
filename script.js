@@ -14,13 +14,27 @@ function formToURL(form) {
 
 function URLToForm(form) {
   const urlParams = new URLSearchParams(window.location.search);
+  const checkboxGroups = {};
 
   // Iterate over all form elements that are referenced in the url search params
-  for (const [key, value] of urlParams.entries()) {
-    if (form.elements[key]) {
-      form.elements[key].value = value;
+  for (const [name, value] of urlParams.entries()) {
+    if (form.elements[name]) {
+      // checkboxes are special, they don't have a value in form.elements, and they are represented with a repeating key in the url
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#handling_multiple_checkboxes
+      if (form.elements[name][0]?.type === 'checkbox') {
+        checkboxGroups[name] ? checkboxGroups[name].push(value) : checkboxGroups[name] = [value];
+      }
+      // Set value to the saved value
+      form.elements[name].value = value;
     }
   }
+
+  // Now handle checkboxes
+  Object.entries(checkboxGroups).forEach(([name, values]) => {
+    form.elements[name].forEach(element => {
+      values.include(element.value) ? element.checked = 'checked' : delete element.checked;
+    })
+  })
 }
 
 function URLToClipboard() {
