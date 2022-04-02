@@ -23,7 +23,7 @@ main fieldset label:hover {
 
 aside {
   color: #8a0f0f;
-  margin: 1em;
+  margin: 0 1em 1em;
   font-weight: 800;
   padding-top: 1em;
   border-top: 1px solid #4d4d4d;
