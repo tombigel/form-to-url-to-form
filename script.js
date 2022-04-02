@@ -31,9 +31,7 @@ function URLToForm(form) {
 
   // Now handle checkboxes
   Object.entries(checkboxGroups).forEach(([name, values]) => {
-    form.elements[name].forEach(element => {
-      values.includes(element.value) ? element.checked = 'checked' : delete element.checked;
-    })
+    form.elements[name].forEach(element => element.checked = values.includes(element.value));
   })
 }
 
