@@ -11,6 +11,7 @@
 <body>
 <!-- partial:index.partial.html -->
 <form name="form" id="form" action=""></form>
+
 <main>
   <input form="form" type="text" name="text" value="Amazing!">
   <input form="form" type="color" name="color" id="">
@@ -32,10 +33,10 @@
     <option value="3">Three</option>
   </select>
   <input form="form" type="range" name="range" min="0" max="100">
-  
+
   <input form="form" type="submit" name="button" value="Submit">
-  
-  <a id="url-to-clipboard" href="">Copy URL to clipboard <span aria-live="polite"></span></a>  
+
+  <a id="url-to-clipboard" href="">Copy URL to clipboard <span aria-live="polite"></span></a>
 </main>
 
 <aside>
@@ -44,6 +45,14 @@
   <a target="_blank" href="https://codepen.io/tombigel/pen/rNpYJKX">https://codepen.io/tombigel/pen/rNpYJKX</a>
 </aside>
 
+<dialog id="no-form-submit" open>
+  This code doesn't work inside an iframe (specifically Codepen iframe),
+  <br>
+  I cloned a page here - <a target="_blank" href="https://tombigel.github.io/form-to-url-to-form/">https://tombigel.github.io/form-to-url-to-form/</a>, check it out.
+  <form method="dialog">
+    <button>Close</button>
+  </form>
+</dialog>
 <!-- partial -->
   <script type="module" src="./script.js"></script>
 

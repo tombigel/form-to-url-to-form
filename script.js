@@ -35,15 +35,25 @@ function init() {
   URLToForm(form);
 
   form.addEventListener("submit", event => {
-    // Update url params fro form
-    formToURL(form);
+    if (window !== window.top) {
+      document.getElementById("no-form-submit").show();
+    } else {
+      // Update url params fro form
+      formToURL(form);
+    }
+
     event.preventDefault();
   });
 
   link.addEventListener("click", event => {
-    URLToClipboard().then(() => {
-      event.target.querySelector("span").textContent = "(Copied!)";
-    });
+    if (window !== window.top) {
+      document.getElementById("no-form-submit").show();
+    } else {
+      URLToClipboard().then(() => {
+        event.target.querySelector("span").textContent = "(Copied!)";
+      });
+    }
+
     event.preventDefault();
   });
 }

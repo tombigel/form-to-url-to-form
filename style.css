@@ -28,3 +28,9 @@ aside {
   padding-top: 1em;
   border-top: 1px solid #4d4d4d;
 }
+
+dialog {
+  color: #8a0f0f;
+  margin: 1em;
+  font-weight: 800;
+}
