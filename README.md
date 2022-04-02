@@ -1,4 +1,4 @@
-# Form state to URL
+# Save and Load Form state to and from the URL
 
 Forms are a great way to save state, their data is also serializable and is fairly easy to deserialize it back to the form, so we can push the entire form state to the url and create a savable state with very little code and no framework dependency.  
 This demo shows it.  
