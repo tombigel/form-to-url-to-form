@@ -30,9 +30,9 @@ function URLToForm(form) {
   }
 
   // Now handle checkboxes
-  Object.entries(checkboxGroups).forEach(([name, values]) => {
+  for (const [name, values] of Object.entries(checkboxGroups)) {
     form.elements[name].forEach(element => element.checked = values.includes(element.value));
-  })
+  }
 }
 
 function URLToClipboard() {
