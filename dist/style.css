@@ -1,0 +1,23 @@
+a,
+select,
+input:not([type=radio], [type=checkbox]) {
+  display: block;
+  margin: 1em;
+}
+
+fieldset {
+  display: flex;
+  margin: 1em;
+  flex-direction: column;
+  width: max-content;
+}
+fieldset label {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2em;
+}
+fieldset label:hover {
+  background: #e6e6e6;
+}
