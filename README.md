@@ -1,10 +1,10 @@
 # Form state to URL
 
 Forms are a great way to save state, their data is also serializable and is fairly easy to deserialize it back to the form, so we can push the entire form state to the url and create a savable state with very little code and no framework dependency.  
+This demo shows it.  
 
-This demo shows it.
-Only external dependency (which is eventually actually never used, but it's imp;ortant to know it is needed) is a polyfill for `form.requestSubmit()`.  
-Apparently Safari's implementation is behind a flag and there is no info on where it will be open by default.
+The only external dependency (which is actually never used in the finished code, but it's important to know it is needed) is a polyfill for `form.requestSubmit()`.  
+Safari's implementation is behind a flag for about a year now and there is no info on where it will be open by default (https://bugs.webkit.org/show_bug.cgi?id=197958).
 
 I created this as a Pen on CodePen.io. Original URL: [https://codepen.io/tombigel/pen/rNpYJKX](https://codepen.io/tombigel/pen/rNpYJKX).
 
