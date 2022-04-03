@@ -78,4 +78,11 @@ function init() {
   });
 }
 
-init();
+/**
+ * Not really necesary, but reminds me of the good ol' days.
+ */
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
