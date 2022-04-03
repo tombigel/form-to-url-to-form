@@ -15,15 +15,20 @@ function formToURL(form) {
 function URLToForm(form) {
   const urlParams = new URLSearchParams(window.location.search);
   const elements = [...form.elements];
-
+  
   // Iterate over all form elements that are referenced in the url search params
   for (const element of elements) {
     // checkboxes are special, they are not set with value but with checked, and they are represented with a repeating key in the url
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#handling_multiple_checkboxes
     if (element.type === 'checkbox' || element.type === 'radio') {
-      element.checked = urlParams.getAll(element.name).includes(element.value);
+      const values = urlParams.getAll(element.name);
+      element.checked = values.includes(element.value);
+    } else {
+      const value = urlParams.get(element.name);
+      if (typeof value !== 'undefined') {
+        element.value = value
+      }
     }
-    element.value = urlParams.get(element.name)
   }
 }
 
