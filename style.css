@@ -11,7 +11,7 @@ main fieldset {
   flex-direction: column;
   width: max-content;
 }
-main input:where([type=radio], [type=checkbox]) label {
+main fieldset label {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
@@ -21,7 +21,6 @@ main input:where([type=radio], [type=checkbox]) label {
 main fieldset label:hover {
   background: #e6e6e6;
 }
-
 aside {
   color: #8a0f0f;
   margin: 0 1em 1em;
