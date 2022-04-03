@@ -24,9 +24,8 @@ function URLToForm(form) {
       const values = urlParams.getAll(element.name);
       element.checked = values.includes(element.value);
     } else {
-      const value = urlParams.get(element.name);
-      if (typeof value !== 'undefined') {
-        element.value = value
+      if (urlParams.has(element.name)) {
+        element.value = urlParams.get(element.name)
       }
     }
   }
