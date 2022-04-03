@@ -43,31 +43,36 @@ function URLToClipboard() {
 function init() {
   const form = document.forms[0];
   const link = document.getElementById("url-to-clipboard");
+  const submitter = document.getElementById("submitter");
+
   // Update form from url params
   URLToForm(form);
 
   form.addEventListener("submit", event => {
+    event.preventDefault();
+
     if (window !== window.top) {
       document.getElementById("no-form-submit").show();
-    } else {
-      // Update url params fro form
-      formToURL(form);
+      return;
     }
-
-    event.preventDefault();
+    // Update url params from form
+    formToURL(form);
   });
 
   link.addEventListener("click", event => {
+    event.preventDefault();
+
     if (window !== window.top) {
       document.getElementById("no-form-submit").show();
-    } else {
-      URLToClipboard().then(() => {
-        event.target.querySelector("span").textContent = "(Copied!)";
-      });
+      reutrn;
     }
 
-    event.preventDefault();
+    URLToClipboard().then(() => {
+      event.target.querySelector("span").textContent = "(Copied!)";
+    });
   });
+
+  submitter.addEventListener("click", () => form.requestSubmit());
 }
 
 init();
