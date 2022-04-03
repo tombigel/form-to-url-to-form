@@ -72,7 +72,10 @@ function init() {
     });
   });
 
-  submitter.addEventListener("click", () => form.requestSubmit());
+  submitter.addEventListener("click", (event) => {
+    event.preventDefault();
+    form.requestSubmit()
+  });
 }
 
 init();
