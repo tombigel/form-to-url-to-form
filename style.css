@@ -1,16 +1,15 @@
-main a,
-main button,
-main select,
-main input:not([type=radio], [type=checkbox]) {
+main :where(a, button, select, input:not([type=radio], [type=checkbox])) {
   display: block;
   margin: 1em;
 }
+
 main fieldset {
   display: flex;
   margin: 1em;
   flex-direction: column;
   width: max-content;
 }
+
 main fieldset label {
   display: flex;
   flex-direction: row-reverse;
@@ -18,9 +17,11 @@ main fieldset label {
   align-items: center;
   gap: 2em;
 }
+
 main fieldset label:hover {
   background: #e6e6e6;
 }
+
 aside {
   color: #8a0f0f;
   margin: 0 1em 1em;
@@ -28,6 +29,7 @@ aside {
   padding-top: 1em;
   border-top: 1px solid #4d4d4d;
 }
+
 dialog {
   color: #8a0f0f;
   margin: 1em;
