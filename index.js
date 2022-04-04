@@ -62,7 +62,7 @@ export function URLToForm(form) {
 /**
  * Write current url to clipboard
  * @param {boolean?} searchOnly copy only the search parmas part of the url
- * @returns {Promise}
+ * @returns {Promise<void>}
  */
 export function URLToClipboard(searchOnly) {
   // Returns a Promise
