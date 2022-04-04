@@ -33,6 +33,10 @@ function URLToForm(form) {
       } else {
         element.value = urlParams.get(element.name);
       }
+    } else {
+      if (element.type === "checkbox" && element.checked) {
+        element.checked = false;
+      }
     }
   }
 }
