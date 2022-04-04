@@ -18,11 +18,17 @@ function URLToForm(form) {
   
   // Iterate over all form elements that are referenced in the url search params
   for (const element of elements) {
-    // checkboxes are special, they are not set with value but with checked, and they are represented with a repeating key in the url
+    // checkboxes, radios and multiselect selects are special, they are not set with value but with checked/selected,
+    // and they might multiple key representations in the url
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#handling_multiple_checkboxes
     if (element.type === 'checkbox' || element.type === 'radio') {
       const values = urlParams.getAll(element.name);
       element.checked = values.includes(element.value);
+      // <select multiple>
+    } else if (element.type === 'select' && element.multiple) {
+      const values = urlParams.getAll(element.name);
+      [...element.querySelectorAll('option')].map(option => option.selected = values.includes(option.value));
+      // Everything else
     } else {
       if (urlParams.has(element.name)) {
         element.value = urlParams.get(element.name)
