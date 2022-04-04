@@ -38,7 +38,7 @@ export function URLToForm(form) {
         element.checked = values.includes(element.value);
       }
       // Handle multiselect
-      else if (element.type === "select" && element.multiple) {
+      else if (element.type === "select-multiple") {
         const values = urlParams.getAll(element.name);
         [...element.querySelectorAll("option")].map(
           (option) => (option.selected = values.includes(option.value))
