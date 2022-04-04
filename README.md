@@ -2,15 +2,22 @@
 
 ## API
 
-```formToURL(form: HTMLFormElement): void```
+```typescript
+formToURL(form: HTMLFormElement): void
+```
 Serialize form data to a search params string and push it to the URL without reloading the page (using the history API)
 
-```URLToForm(form: HTMLFormElement): void```
+```typescript
+URLToForm(form: HTMLFormElement): void
+```
 Parse the search params and set form values
 
-```URLToClipboard(searchOnly?: boolean): Promise```
-Write current url to clipboard
-`searchOnly`: copy only the search parmas part of the url
+```typescript
+URLToClipboard(searchOnly?: boolean): Promise<void>
+```
+Write current url to clipboard  
+
+`searchOnly`: When set to true, copy only the search parmas part of the url
 
 ## Demo
 
