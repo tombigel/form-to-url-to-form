@@ -32,5 +32,3 @@ This demo shows a way to do it using `FormData`, `URLSearchParams`, `form.reques
 
 The only external dependency is a polyfill for `form.requestSubmit()`.  
 Safari's implementation is behind a flag for about a year now and there is no info on if and when it will be open by default (<https://bugs.webkit.org/show_bug.cgi?id=197958>).
-
-(Original CodePen.io URL: [https://codepen.io/tombigel/pen/rNpYJKX](https://codepen.io/tombigel/pen/rNpYJKX))
