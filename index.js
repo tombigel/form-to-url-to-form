@@ -2,7 +2,7 @@
  * Serialize form data to a search params string and push it to the URL without reloading the page (using the history API)
  * @param {HTMLFormElement} form
  */
-export function formToURL(form) {
+export function formToUrl(form) {
     const formData = new FormData(form);
 
     // Update URL without reloading
@@ -17,7 +17,7 @@ export function formToURL(form) {
  * Parse the search params and set form values
  * @param {HTMLFormElement} form
  */
-export function URLToForm(form) {
+export function urlToForm(form) {
     const urlParams = new URLSearchParams(window.location.search);
     const elements = [...form.elements];
 
@@ -28,28 +28,28 @@ export function URLToForm(form) {
     }
     // Iterate over all form elements that are referenced in the url search params
     for (const element of elements) {
-        // checkboxes, radios and multiselect selects are special, they are not set with value but with checked/selected,
-        // and they might multiple key representations in the url
-        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#handling_multiple_checkboxes
         if (urlParams.has(element.name)) {
-            // Handle checkboxes and radios
+            // Multiple value elements are special, they are represented in the search params with multiple appearences
+            // Also, they are not set by value in the form but by 'cehcked'/'selected' attributes
+            //
+            // Check checkboxes and radios that are in the search params
             if (element.type === 'checkbox' || element.type === 'radio') {
                 const values = urlParams.getAll(element.name);
                 element.checked = values.includes(element.value);
             }
-            // Handle multiselect
+            // Handle multiselect select boxes
             else if (element.type === 'select-multiple') {
                 const values = urlParams.getAll(element.name);
                 [...element.querySelectorAll('option')].map(
                     (option) => (option.selected = values.includes(option.value))
                 );
             }
-            // Handle all other form elements
+            // Handle all other form elements by value
             else {
                 element.value = urlParams.get(element.name);
             }
         }
-        // Radios and checkboxes which are not on the list and are checked by default should be deselected
+        // Uncheck checkboxes and radios that are not in the search params
         else if ((element.type === 'checkbox' || element.type === 'radio') && element.checked) {
             element.checked = false;
         }
@@ -62,6 +62,5 @@ export function URLToForm(form) {
  * @returns {Promise<void>}
  */
 export function URLToClipboard(searchOnly) {
-    // Returns a Promise
     return navigator.clipboard.writeText(searchOnly ? location.search : location.href);
 }

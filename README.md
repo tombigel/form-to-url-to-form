@@ -3,13 +3,13 @@
 ## API
 
 ```typescript
-formToURL(form: HTMLFormElement): void
+formToUrl(form: HTMLFormElement): void
 ```
 
 Serialize form data to a search params string and push it to the URL without reloading the page (using the history API)
 
 ```typescript
-URLToForm(form: HTMLFormElement): void
+urlToForm(form: HTMLFormElement): void
 ```
 
 Parse the search params and set form values

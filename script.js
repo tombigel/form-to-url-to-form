@@ -1,6 +1,6 @@
 // polyfill for form.requestSubmit in Safari, should be removed when the feature is enabled https://bugs.webkit.org/show_bug.cgi?id=197958
 import formRequestSubmitPolyfill from 'https://cdn.skypack.dev/pin/form-request-submit-polyfill@v2.0.0-szOipIemxchOslzcqvLN/mode=imports,min/optimized/form-request-submit-polyfill.js';
-import { URLToForm, formToURL, URLToClipboard } from './index.js';
+import { urlToForm, formToUrl, URLToClipboard } from './index.js';
 
 function init() {
     const form = document.forms[0];
@@ -8,7 +8,7 @@ function init() {
     const submitter = document.getElementById('submitter');
 
     // Update form from url params
-    URLToForm(form);
+    urlToForm(form);
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -18,7 +18,7 @@ function init() {
             return;
         }
         // Update url params from form
-        formToURL(form);
+        formToUrl(form);
     });
 
     link.addEventListener('click', (event) => {
