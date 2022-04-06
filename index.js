@@ -61,6 +61,6 @@ export function urlToForm(form) {
  * @param {boolean?} searchOnly copy only the search parmas part of the url
  * @returns {Promise<void>}
  */
-export function URLToClipboard(searchOnly) {
+export function urlToClipboard(searchOnly) {
     return navigator.clipboard.writeText(searchOnly ? location.search : location.href);
 }

@@ -15,7 +15,7 @@ urlToForm(form: HTMLFormElement): void
 Parse the search params and set form values
 
 ```typescript
-URLToClipboard(searchOnly?: boolean): Promise<void>
+urlToClipboard(searchOnly?: boolean): Promise<void>
 ```
 
 Write current url to clipboard  
