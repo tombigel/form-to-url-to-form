@@ -10,6 +10,8 @@ export function formToUrl(form) {
         const url = new URL(window.location.href);
         url.search = new URLSearchParams(formData).toString();
         window.history.pushState({ path: url.href }, '', url.href);
+    } else {
+        console.error('Your browser does not support the history.pushState API which is needed for changing the URL withot a page reload')
     }
 }
 
