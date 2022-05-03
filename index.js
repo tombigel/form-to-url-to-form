@@ -52,7 +52,7 @@ export function urlToForm(form) {
             }
         }
         // Uncheck checkboxes and radios that are not in the search params
-        else if ((element.type === 'checkbox' || element.type === 'radio') && element.checked) {
+        else if ((element.type === 'checkbox' || (element.type === 'radio' && !form.elements[element.name].length)) && element.checked) {
             element.checked = false;
         }
     }
