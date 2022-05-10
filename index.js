@@ -2,14 +2,15 @@
  * Serialize form data to a search params string and push it to the URL without reloading the page (using the history API)
  * @param {HTMLFormElement} form
  */
-export function formToUrl(form) {
+export function formToUrl(form, {replace = false} = {}) {
     const formData = new FormData(form);
 
+    const stateAction = replace ? history.replaceState : history.pushState;
     // Update URL without reloading
-    if (history.pushState) {
+    if (stateAction) {
         const url = new URL(window.location.href);
         url.search = new URLSearchParams(formData).toString();
-        window.history.pushState({ path: url.href }, '', url.href);
+        stateAction({ path: url.href }, '', url.href);
     } else {
         console.error('Your browser does not support the history.pushState API which is needed for changing the URL withot a page reload')
     }
