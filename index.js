@@ -5,12 +5,12 @@
 export function formToUrl(form, {replace = false} = {}) {
     const formData = new FormData(form);
 
-    const stateAction = replace ? history.replaceState : history.pushState;
+    const stateAction = replace ? 'replaceState' : 'pushState';
     // Update URL without reloading
-    if (stateAction) {
+    if (history[stateAction]) {
         const url = new URL(window.location.href);
         url.search = new URLSearchParams(formData).toString();
-        stateAction({ path: url.href }, '', url.href);
+        history[stateAction]({ path: url.href }, '', url.href);
     } else {
         console.error('Your browser does not support the history.pushState API which is needed for changing the URL withot a page reload')
     }
