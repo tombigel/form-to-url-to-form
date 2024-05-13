@@ -31,4 +31,4 @@ We can push the entire form state to the url and create a savable state with ver
 This demo shows a way to do it using `FormData`, `URLSearchParams`, `form.requestSubmit()` and `history.pushState`.  
 
 The only external dependency is a polyfill for `form.requestSubmit()`.  
-Safari's implementation is behind a flag for about a year now and there is no info on if and when it will be open by default (<https://bugs.webkit.org/show_bug.cgi?id=197958>).
+Safari's implementation ~~is behind a flag for about a year now and there is no info on if and when it will be open by default~~ was added only on 2022 (<https://bugs.webkit.org/show_bug.cgi?id=197958>).
