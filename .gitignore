@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE and editor folders
+.history/
+.vscode/
+.idea/
+*.sublime-*
+.DS_Store
