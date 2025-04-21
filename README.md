@@ -1,12 +1,40 @@
-# Save and Load Form state to and from the URL
+# Form To URL To Form
+
+Save and load form state to and from the URL. Perfect for creating sharable form states without server-side persistence.
+
+## Installation
+
+```bash
+npm install form-to-url-to-form
+```
+
+## Features
+
+- Serialize form data to URL search parameters
+- Restore form data from URL search parameters
+- Copy the URL to clipboard for sharing
+- Supports all standard form controls:
+  - Text inputs
+  - Checkboxes
+  - Radio buttons
+  - Select boxes (including multi-select)
+  - Range sliders
+  - Hidden fields
+- No dependencies
+- TypeScript support
+- Small footprint (~1.6KB)
 
 ## API
 
 ```typescript
-formToUrl(form: HTMLFormElement): void
+formToUrl(form: HTMLFormElement, options?: FormToUrlOptions): void
 ```
 
 Serialize form data to a search params string and push it to the URL without reloading the page (using the history API)
+
+Options:
+
+- `replace?: boolean` - When set to true, replace the current history state instead of pushing a new one (default: false)
 
 ```typescript
 urlToForm(form: HTMLFormElement): void
@@ -15,20 +43,21 @@ urlToForm(form: HTMLFormElement): void
 Parse the search params and set form values
 
 ```typescript
-urlToClipboard({ searchOnly?: boolean }): Promise<void>
+urlToClipboard(options?: UrlToClipboardOptions): Promise<void>
 ```
 
-Write current url to clipboard  
+Write current URL to clipboard  
 
-`searchOnly`: When set to true, copy only the search parmas part of the url
+## How It Works
 
-## Demo
+Forms are a great way to manage state for UI, their data is serializable and fairly easy to deserialize back to the form.  
 
-<https://tombigel.github.io/form-to-url-to-form/>
+We can push the entire form state to the URL and create a savable state with very little code and no framework dependency.  
 
-Forms are a great way to manage state for UI, their data is serializable and is fairly easy to deserialize it back to the form.  
-We can push the entire form state to the url and create a savable state with very little code and no framework dependency.  
-This demo shows a way to do it using `FormData`, `URLSearchParams`, `form.requestSubmit()` and `history.pushState`.  
+This library provides a simple way to do this using `FormData`, `URLSearchParams`, and the history API.
 
-The only external dependency is a polyfill for `form.requestSubmit()`.  
-Safari's implementation ~~is behind a flag for about a year now and there is no info on if and when it will be open by default~~ was added only on 2022 (<https://bugs.webkit.org/show_bug.cgi?id=197958>).
+## Links
+
+- [GitHub Repository](https://github.com/tombigel/form-to-url-to-form)
+- [npm Package](https://www.npmjs.com/package/form-to-url-to-form)
+- [Author: Tom Bigelajzen](https://github.com/tombigel)

@@ -1,0 +1,65 @@
+{
+  "name": "form-to-url-to-form",
+  "version": "1.0.0",
+  "description": "Save and load form state to and from the URL",
+  "type": "module",
+  "main": "dist/form-to-url-to-form.umd.js",
+  "module": "dist/form-to-url-to-form.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "demo": "vite examples/demo --open",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "predeploy": "npm run build && vite build examples/demo --outDir ../dist/demo --emptyOutDir",
+    "deploy": "gh-pages -d dist",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:patch": "standard-version --release-as patch",
+    "publish-npm": "npm run build && npm run test && npm publish",
+    "publish-and-deploy": "npm run release && git push --follow-tags origin main && npm run publish-npm && npm run deploy"
+  },
+  "keywords": [
+    "form",
+    "url",
+    "state",
+    "serialization",
+    "history-api",
+    "browser"
+  ],
+  "author": {
+    "name": "Tom Bigelajzen",
+    "url": "https://github.com/tombigel"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tombigel/form-to-url-to-form.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tombigel/form-to-url-to-form/issues"
+  },
+  "homepage": "https://github.com/tombigel/form-to-url-to-form#readme",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@types/node": "^22.14.1",
+    "gh-pages": "^6.3.0",
+    "jsdom": "^26.1.0",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.2",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.1.2"
+  }
+}
