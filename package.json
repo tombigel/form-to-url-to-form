@@ -1,6 +1,6 @@
 {
   "name": "form-to-url-to-form",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Save and load form state to and from the URL",
   "type": "module",
   "main": "dist/form-to-url-to-form.umd.js",
