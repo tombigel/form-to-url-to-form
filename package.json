@@ -50,7 +50,7 @@
   "bugs": {
     "url": "https://github.com/tombigel/form-to-url-to-form/issues"
   },
-  "homepage": "https://github.com/tombigel/form-to-url-to-form#readme",
+  "homepage": "https://tombigel.github.io/form-to-url-to-form/examples/demo/index.html",
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
     "@types/node": "^22.14.1",

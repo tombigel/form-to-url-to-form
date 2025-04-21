@@ -4,7 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 1.1.0 (2025-04-21)
 
-
 ### Features
 
 * modernize project with TypeScript, Vite, and testing ([0d22cdc](https://github.com/tombigel/form-to-url-to-form/commit/0d22cdca57f6756d4b49cea0515e9beb3283223c))
@@ -13,8 +12,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-- Initial release
-- TypeScript support
-- Build with Vite
-- Comprehensive test suite
-- Demo application
+* Initial release
+* TypeScript support
+* Build with Vite
+* Comprehensive test suite
+* Demo application
