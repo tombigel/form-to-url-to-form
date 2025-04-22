@@ -1,0 +1,187 @@
+.app {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.5;
+  color: #333;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input, select {
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 8px 16px;
+  background: #4a87ee;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #3b76d9;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #4a87ee;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.description {
+  background: linear-gradient(to right, #f9f9f9, #ffffff);
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.description h2 {
+  margin-top: 0;
+  color: #4a87ee;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.description p {
+  margin-bottom: 15px;
+}
+
+.description strong {
+  color: #333;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+.footer .author {
+  margin-bottom: 10px;
+}
+
+.footer .links a {
+  margin: 0 8px;
+}
+
+.select-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.select-container > div {
+  flex: 1;
+}
+
+@media (min-width: 600px) {
+  .select-container {
+    flex-direction: row;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .app {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  fieldset {
+    border-color: #444;
+  }
+
+  legend {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  label {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select {
+    background-color: #333;
+    color: rgba(255, 255, 255, 0.87);
+    border: 1px solid #444;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    accent-color: #7aa7f5;
+  }
+
+  .description {
+    background: linear-gradient(to right, #2a2a2a, #242424);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .description p {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .description strong {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .footer {
+    border-top-color: #444;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  a {
+    color: #7aa7f5;
+  }
+
+  .description h2 {
+    color: #7aa7f5;
+    border-bottom-color: #444;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button-group button {
+  flex: 1;
+}
+
+.button-group button span {
+  margin-left: 5px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
