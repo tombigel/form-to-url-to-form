@@ -29,3 +29,4 @@ export declare function urlToForm(form: HTMLFormElement): void;
  * @returns Promise that resolves when the URL has been copied
  */
 export declare function urlToClipboard(options?: UrlToClipboardOptions): Promise<void>;
+//# sourceMappingURL=index.d.ts.map
