@@ -1,24 +1,31 @@
 import { defineConfig } from 'vite';
-import path from 'path';
+import { resolve } from 'path';
+import { configDefaults } from 'vitest/config';
 import dts from 'vite-plugin-dts';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [
+    react(),
     dts({
       insertTypesEntry: true,
     }),
   ],
+  base: '/form-to-url-to-form/',
   build: {
-    lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'FormToUrlToForm',
-      fileName: (format) => `form-to-url-to-form.${format}.js`
+    outDir: 'build',
+    sourcemap: true,
+  },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
     },
-    rollupOptions: {
-      output: {
-        // Provide global variables to use in the UMD build
-        globals: {}
-      }
-    }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+    css: true,
+    exclude: [...configDefaults.exclude],
   }
 });

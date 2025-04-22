@@ -3,9 +3,16 @@
   "version": "1.1.3",
   "description": "Save and load form state to and from the URL",
   "type": "module",
-  "main": "dist/form-to-url-to-form.umd.js",
-  "module": "dist/form-to-url-to-form.es.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/es/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "files": [
     "dist",
     "src"
@@ -16,19 +23,23 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:lib": "vite build --config vite.lib.config.ts",
+    "build:types": "tsc -p tsconfig.types.json",
+    "clean": "rimraf dist build",
     "preview": "vite preview",
     "demo": "vite examples/demo --open",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "predeploy": "npm run build && vite build examples/demo --outDir ../dist/demo --emptyOutDir",
-    "deploy": "gh-pages -d dist",
-    "release": "standard-version",
-    "release:minor": "standard-version --release-as minor",
-    "release:major": "standard-version --release-as major",
-    "release:patch": "standard-version --release-as patch",
-    "publish-npm": "npm run build && npm run test && npm publish",
-    "publish-and-deploy": "npm run release && git push --follow-tags origin main && npm run publish-npm && npm run deploy"
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "update-version": "node scripts/update-version.js",
+    "version:patch": "npm version patch && npm run update-version",
+    "version:minor": "npm version minor && npm run update-version",
+    "version:major": "npm version major && npm run update-version",
+    "prepublishOnly": "npm run clean && npm run build:lib && npm run build:types",
+    "publish-and-deploy": "npm run version:patch && git push --follow-tags origin main && npm publish && npm run deploy"
   },
   "keywords": [
     "form",
@@ -53,9 +64,20 @@
   "homepage": "https://tombigel.github.io/form-to-url-to-form/examples/demo/index.html",
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^22.14.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@typescript-eslint/eslint-plugin": "^8.30.1",
+    "@typescript-eslint/parser": "^8.30.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^9.25.0",
     "gh-pages": "^6.3.0",
     "jsdom": "^26.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rimraf": "^5.0.5",
     "standard-version": "^9.5.0",
     "typescript": "^5.8.3",
     "vite": "^6.3.2",
