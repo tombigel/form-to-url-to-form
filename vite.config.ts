@@ -11,6 +11,7 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
   ],
+  base: '/form-to-url-to-form/',
   build: {
     outDir: 'build',
     sourcemap: true,
