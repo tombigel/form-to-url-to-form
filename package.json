@@ -61,7 +61,7 @@
   "bugs": {
     "url": "https://github.com/tombigel/form-to-url-to-form/issues"
   },
-  "homepage": "https://tombigel.github.io/form-to-url-to-form/examples/demo/index.html",
+  "homepage": "https://tombigel.github.io/form-to-url-to-form/",
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

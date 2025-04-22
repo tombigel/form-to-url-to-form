@@ -2,6 +2,8 @@
 
 Save and load form state to and from the URL. Perfect for creating sharable form states without server-side persistence.
 
+[Try the Demo](https://tombigel.github.io/form-to-url-to-form/)
+
 ## Installation
 
 ```bash
