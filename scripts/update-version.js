@@ -5,10 +5,15 @@
  * to match the current version in package.json
  */
 
-const fs = require('fs');
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Get current version from package.json
-const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+const packageJson = JSON.parse(readFileSync(resolve(__dirname, '../package.json'), 'utf8'));
 const version = packageJson.version;
 
 console.log(`Updating version references to ${version}...`);
@@ -21,8 +26,9 @@ const filesToUpdate = [
 
 filesToUpdate.forEach(file => {
   try {
-    if (fs.existsSync(file)) {
-      let content = fs.readFileSync(file, 'utf8');
+    const filePath = resolve(__dirname, '..', file);
+    if (existsSync(filePath)) {
+      let content = readFileSync(filePath, 'utf8');
 
       // Update version references
       content = content.replace(
@@ -38,7 +44,7 @@ filesToUpdate.forEach(file => {
         );
       }
 
-      fs.writeFileSync(file, content);
+      writeFileSync(filePath, content);
       console.log(`Updated ${file}`);
     } else {
       console.log(`File not found: ${file}`);
