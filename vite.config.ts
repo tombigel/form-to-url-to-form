@@ -14,7 +14,11 @@ export default defineConfig({
       name: 'handle-demo-redirect',
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          if (req.url?.startsWith('/form-to-url-to-form/examples/demo/')) {
+          if (req.url === '/form-to-url-to-form' || req.url === '/form-to-url-to-form/') {
+            next();
+            return;
+          }
+          if (req.url?.startsWith('/form-to-url-to-form/')) {
             res.writeHead(301, { Location: '/form-to-url-to-form/' });
             res.end();
             return;
@@ -26,7 +30,7 @@ export default defineConfig({
         return html.replace(
           '</head>',
           `<script>
-            if (window.location.pathname.includes('/examples/demo/')) {
+            if (window.location.pathname !== '/form-to-url-to-form/' && window.location.pathname !== '/form-to-url-to-form') {
               window.location.href = '/form-to-url-to-form/';
             }
           </script>
