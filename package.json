@@ -31,11 +31,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "version": "git add .",
-    "version:patch": "npm version patch",
-    "version:minor": "npm version minor",
-    "version:major": "npm version major",
+    "version:patch": "npm version patch -m \"chore(release): %s\"",
+    "version:minor": "npm version minor -m \"chore(release): %s\"",
+    "version:major": "npm version major -m \"chore(release): %s\"",
     "prepublishOnly": "npm run clean && npm run build:lib && npm run build:types",
-    "release": "npm run version:patch && git push --follow-tags origin main && npm publish && npm run deploy"
+    "release": "npm test && npm run version:patch && git push --follow-tags origin main && npm publish && npm run deploy"
   },
   "keywords": [
     "form",
