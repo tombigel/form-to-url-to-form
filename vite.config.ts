@@ -11,9 +11,10 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
   ],
+  root: 'demo',
   base: '/form-to-url-to-form/',
   build: {
-    outDir: 'build',
+    outDir: '../build',
     sourcemap: true,
   },
   resolve: {

@@ -20,9 +20,19 @@
     "jsx": "react-jsx",
     "declaration": true,
     "sourceMap": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
-    "src"
+    "src",
+    "demo"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build"
   ]
 }
