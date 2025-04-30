@@ -16,3 +16,6 @@ yarn-error.log*
 .idea/
 *.sublime-*
 .DS_Store
+
+# Cursor specific files
+.cursor/
